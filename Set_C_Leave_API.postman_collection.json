@@ -1,0 +1,108 @@
+{
+  "info": {
+    "name": "Set C - Employee Leave Management API",
+    "_postman_id": "8e9b3e18-9f48-4f27-8c8c-5c8f2e5c7a01",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "GET all leaves",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/leaves"
+      }
+    },
+    {
+      "name": "POST new leave",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"employeeName\": \"Vikram Das\",\n  \"employeeCode\": \"EMP104\",\n  \"leaveType\": \"Earned\",\n  \"days\": 2,\n  \"status\": \"Pending\"\n}"
+        },
+        "url": "{{baseUrl}}/api/leaves"
+      }
+    },
+    {
+      "name": "GET leave by ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/leaves/701"
+      }
+    },
+    {
+      "name": "PUT update leave",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"employeeName\": \"Ananya Singh\",\n  \"employeeCode\": \"EMP101\",\n  \"leaveType\": \"Casual\",\n  \"days\": 2,\n  \"status\": \"Approved\"\n}"
+        },
+        "url": "{{baseUrl}}/api/leaves/701"
+      }
+    },
+    {
+      "name": "DELETE leave",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/leaves/703"
+      }
+    },
+    {
+      "name": "FILTER by status",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/leaves/filter?status=approved"
+      }
+    },
+    {
+      "name": "GET pending leaves",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/leaves/pending"
+      }
+    },
+    {
+      "name": "Invalid ID (404 test)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/leaves/9999"
+      }
+    },
+    {
+      "name": "Invalid body (400 test)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"employeeName\": \"Test User\",\n  \"employeeCode\": \"EMP999\",\n  \"leaveType\": \"Other\",\n  \"days\": 0,\n  \"status\": \"Pending\"\n}"
+        },
+        "url": "{{baseUrl}}/api/leaves"
+      }
+    }
+  ]
+}

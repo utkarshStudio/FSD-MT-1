@@ -1,0 +1,12 @@
+{
+  "name": "set-c-employee-leave-management",
+  "version": "1.0.0",
+  "description": "Set C - Employee Leave Management REST API practical assessment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
